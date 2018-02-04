@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="N.P. Brosowsky" content="Tone.js instrument library loader" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <!-- Document Title
+	============================================= -->
+    <title>ToneJS-Instruments Demo</title>
+
+</head>
+
+<body>
+    <style type="text/css">
+        body {
+            height: 100vh;
+            width: 100vw;
+            font-family: Helvetica, arial;
+            font-size: 16px;
+        }
+
+        #content {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .container {
+            display: none;
+        }
+
+        #Keyboard {
+            margin: 3px!important;
+        }
+    </style>
+    <div id="content">
+        <H3 id="loading">Loading...</H3>
+        <div class="container">
+            <h1> Tone.js-Instruments</h1>
+            <div id="Selector"></div>
+            <br/>
+            <div id="Keyboard"></div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="js/NexusUI.js"></script>
+    <script type="text/javascript" src="js/Tone.js"></script>
+    <script type="text/javascript" src="js/Tonejs-Instruments.js"></script>
+
+    <script>
+        // load samples //
+
+        var samples = SampleLibrary.load({
+            instruments: ['piano','bass-electric','bassoon','cello','clarinet','contrabass','flute','french-horn','guitar-acoustic','guitar-electric','harmonium','harp','organ','saxophone','trombone','trumpet','tuba','violin','xylophone'],
+            ext: '.mp3'
+        })
+
+        // show keyboard on load //
+        Tone.Buffer.on('load', function() {
+            document.querySelector(".container").style.display = 'block';
+            document.querySelector("#loading").style.display = 'none';
+        })
+
+
+
+
+        // loop through instruments and set release, connect to master output
+        for (var property in samples) {
+            if (samples.hasOwnProperty(property)) {
+                console.log(samples[property])
+                samples[property].release = 1;
+                samples[property].toMaster();
+            }
+        }
+
+        // create Nexus UI //
+        Nexus.colors.accent = "#f00"
+
+        var select = new Nexus.Select('#Selector', {
+            'size': [300, 30],
+            'options': Object.keys(samples)
+        });
+
+        var keyboardUI = new Nexus.Piano('#Keyboard', {
+            'size': [1000, 125],
+            'mode': 'button', // 'button', 'toggle', or 'impulse'
+            'lowNote': 36,
+            'highNote': 72
+        })
+
+        var current = samples['piano'];
+
+        select.on('change', function(v) {
+            current = samples[v.value];
+        })
+
+        keyboardUI.on('change', function(note) {
+            console.log(Tone.Frequency(note.note, "midi").toNote());
+            if (note.state === true) {
+                current.triggerAttack(Tone.Frequency(note.note, "midi").toNote());
+            } else if (note.state === false) {
+                current.triggerRelease(Tone.Frequency(note.note, "midi").toNote());
+            }
+        })
+    </script>
+
+</body>
+    
+</html>
