@@ -72,7 +72,7 @@ var SampleLibrary = {
 
                 rt[t.instruments[i]] = new Tone.Sampler(
                     newT, {
-                        baseUrl: t.baseUrl + "/" + t.instruments[i] + "/"
+                        baseUrl: t.baseUrl + t.instruments[i] + "/"
                     }
 
                 )
@@ -110,7 +110,7 @@ var SampleLibrary = {
 
             var s = new Tone.Sampler(
                 newT, {
-                    baseUrl: t.baseUrl + "/" + t.instruments + "/"
+                    baseUrl: t.baseUrl + t.instruments + "/"
                 }
             )
 
