@@ -5,7 +5,7 @@ So I decided to put together a little code that makes it easier for me to load t
 
 This code produces a SampleLibrary object with all the info about the samples and a quick load function.
 
-##### [DEMO - tonejs-instruments.js](https://nbrosowsky.github.io/tonejs-instruments/index.html)
+##### [DEMO - tonejs-instruments.js](https://nbrosowsky.github.io/tonejs-instruments/demo.html)
 
 ## Basic Usage
 
