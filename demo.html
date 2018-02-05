@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
+    <!-- Styling -->
+    <link rel="stylesheet" href="nprogress.css" type="text/css" />
     <!-- Document Title
 	============================================= -->
     <title>ToneJS-Instruments Demo</title>
@@ -44,17 +46,20 @@
         <H3 id="loading">Loading...</H3>
         <div class="container">
             <h1> Tone.js-Instruments</h1>
+            <p> (all instruments) </p>
             <div id="Selector"></div>
             <br/>
             <div id="Keyboard"></div>
         </div>
 
     </div>
+    <script type="text/javascript" src="external-js/nprogress.js"></script>
     <script type="text/javascript" src="external-js/NexusUI.js"></script>
     <script type="text/javascript" src="external-js/Tone.js"></script>
     <script type="text/javascript" src="Tonejs-Instruments.js"></script>
 
     <script>
+        NProgress.start();
         // load samples //
 
         var samples = SampleLibrary.load({
@@ -62,12 +67,17 @@
 	    baseUrl: "/tonejs-instruments/samples/"
         })
 
+        
         // show keyboard on load //
         Tone.Buffer.on('load', function() {
             document.querySelector(".container").style.display = 'block';
             document.querySelector("#loading").style.display = 'none';
+            NProgress.done();
         })
 
+        Tone.Buffer.on('error', function(){
+            document.querySelector("#loading").innerHTML = "I'm sorry, there has been an error loading the samples. This demo works best on on the most up-to-date version of Chrome.";
+        })
 
 
 

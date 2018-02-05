@@ -5,7 +5,10 @@ So I decided to put together a little code that makes it easier for me to load t
 
 This code produces a SampleLibrary object with all the info about the samples and a quick load function.
 
-##### [DEMO - tonejs-instruments.js](https://nbrosowsky.github.io/tonejs-instruments/demo.html)
+##### [DEMO (all instruments)](https://nbrosowsky.github.io/tonejs-instruments/demo.html)
+**Note: this demo loads all the samples from all the instruments and may be slow loading. If your internet connection is slow, I suggest the demo below, which loads four randomly chosen instruments.
+
+##### [DEMO (four random instruments)](https://nbrosowsky.github.io/tonejs-instruments/demo-min.html)
 
 ## Basic Usage
 
