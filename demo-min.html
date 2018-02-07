@@ -70,7 +70,7 @@
             baseUrl: "/tonejs-instruments/samples/"
         })
 
-
+        var current
         // show keyboard on load //
         Tone.Buffer.on('load', function() {
             document.querySelector(".container").style.display = 'block';
@@ -86,7 +86,7 @@
                 }
             }
 
-            var current = samples[chooseFour[0]];
+            current = samples[chooseFour[0]];
 
             select.on('change', function(v) {
                 current = samples[v.value];

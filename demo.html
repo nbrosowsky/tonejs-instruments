@@ -70,6 +70,7 @@
 
 
         // show keyboard on load //
+        var current
         Tone.Buffer.on('load', function() {
             document.querySelector(".container").style.display = 'block';
             document.querySelector("#loading").style.display = 'none';
@@ -84,7 +85,7 @@
                 }
             }
 
-            var current = samples['piano'];
+            current = samples['piano'];
 
             select.on('change', function(v) {
                 current = samples[v.value];
