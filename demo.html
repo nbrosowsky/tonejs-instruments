@@ -41,6 +41,7 @@
         #Keyboard {
             margin: 3px!important;
         }
+
     </style>
     <div id="content">
         <H3 id="loading">Loading...</H3>
@@ -63,32 +64,41 @@
         // load samples //
 
         var samples = SampleLibrary.load({
-            instruments: ['piano','bass-electric','bassoon','cello','clarinet','contrabass','flute','french-horn','guitar-acoustic','guitar-electric','harmonium','harp','organ','saxophone','trombone','trumpet','tuba','violin','xylophone'],
-	    baseUrl: "/tonejs-instruments/samples/"
+            instruments: ['piano', 'bass-electric', 'bassoon', 'cello', 'clarinet', 'contrabass', 'flute', 'french-horn', 'guitar-acoustic', 'guitar-electric', 'harmonium', 'harp', 'organ', 'saxophone', 'trombone', 'trumpet', 'tuba', 'violin', 'xylophone'],
+            baseUrl: "/tonejs-instruments/samples/"
         })
 
-        
+
         // show keyboard on load //
         Tone.Buffer.on('load', function() {
             document.querySelector(".container").style.display = 'block';
             document.querySelector("#loading").style.display = 'none';
             NProgress.done();
+
+            // loop through instruments and set release, connect to master output
+            for (var property in samples) {
+                if (samples.hasOwnProperty(property)) {
+                    console.log(samples[property])
+                    samples[property].release = .5;
+                    samples[property].toMaster();
+                }
+            }
+
+            var current = samples['piano'];
+
+            select.on('change', function(v) {
+                current = samples[v.value];
+            })
+
+
         })
 
-        Tone.Buffer.on('error', function(){
+        Tone.Buffer.on('error', function() {
             document.querySelector("#loading").innerHTML = "I'm sorry, there has been an error loading the samples. This demo works best on on the most up-to-date version of Chrome.";
         })
 
 
 
-        // loop through instruments and set release, connect to master output
-        for (var property in samples) {
-            if (samples.hasOwnProperty(property)) {
-                console.log(samples[property])
-                samples[property].release = 1;
-                samples[property].toMaster();
-            }
-        }
 
         // create Nexus UI //
         Nexus.colors.accent = "#f00"
@@ -105,11 +115,6 @@
             'highNote': 72
         })
 
-        var current = samples['piano'];
-
-        select.on('change', function(v) {
-            current = samples[v.value];
-        })
 
         keyboardUI.on('change', function(note) {
             console.log(Tone.Frequency(note.note, "midi").toNote());
@@ -119,8 +124,9 @@
                 current.triggerRelease(Tone.Frequency(note.note, "midi").toNote());
             }
         })
+
     </script>
 
 </body>
-    
+
 </html>

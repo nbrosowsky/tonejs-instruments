@@ -24,7 +24,7 @@
             font-family: Helvetica, arial;
             font-size: 16px;
         }
-        
+
         #content {
             height: 100%;
             width: 100%;
@@ -32,11 +32,11 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .container {
             display: none;
         }
-        
+
         #Keyboard {
             margin: 3px!important;
         }
@@ -63,7 +63,7 @@
         // load samples / choose 4 random instruments from the list //
         chooseFour = ['piano', 'bass-electric', 'bassoon', 'cello', 'clarinet', 'contrabass', 'flute', 'french-horn', 'guitar-acoustic', 'guitar-electric', 'harmonium', 'harp', 'organ', 'saxophone', 'trombone', 'trumpet', 'tuba', 'violin', 'xylophone']
         shuffle(chooseFour);
-        chooseFour = chooseFour.slice(0,4);
+        chooseFour = chooseFour.slice(0, 4);
 
         var samples = SampleLibrary.load({
             instruments: chooseFour,
@@ -76,6 +76,23 @@
             document.querySelector(".container").style.display = 'block';
             document.querySelector("#loading").style.display = 'none';
             NProgress.done();
+
+            // loop through instruments and set release, connect to master output
+            for (var property in samples) {
+                if (samples.hasOwnProperty(property)) {
+                    console.log(samples[property])
+                    samples[property].release = .5;
+                    samples[property].toMaster();
+                }
+            }
+
+            var current = samples[chooseFour[0]];
+
+            select.on('change', function(v) {
+                current = samples[v.value];
+            })
+
+
         })
         // show error message on loading error //
         Tone.Buffer.on('error', function() {
@@ -84,14 +101,6 @@
 
 
 
-        // loop through instruments and set release, connect to master output
-        for (var property in samples) {
-            if (samples.hasOwnProperty(property)) {
-                console.log(samples[property])
-                samples[property].release = 1;
-                samples[property].toMaster();
-            }
-        }
 
         // create Nexus UI //
         Nexus.colors.accent = "#f00"
@@ -108,11 +117,6 @@
             'highNote': 72
         })
 
-        var current = samples[chooseFour[0]];
-
-        select.on('change', function(v) {
-            current = samples[v.value];
-        })
 
         keyboardUI.on('change', function(note) {
             console.log(Tone.Frequency(note.note, "midi").toNote());
