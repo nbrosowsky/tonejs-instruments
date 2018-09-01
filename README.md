@@ -71,16 +71,9 @@ var piano = SampleLibrary.load({
 
 ## About the samples
 
-These instrument samples come from a variety of different sources, including 
-[Big Cat Instruments](http://bigcatinstruments.blogspot.com/),
-[The Alpine Project](http://alpineproject.wixsite.com/main),
-[Versilian Studios](http://vis.versilstudios.net/vsco-community.html),
-[University of Iowa](http://theremin.music.uiowa.edu/),
-[Blakus.com](http://blakus.com/pocketblakus-192),
-[microforj.com](http://microforj.com/)
+These instrument samples come from a variety of public domain sources (see the sample-source-info.txt for more information)
 
-I've done some pre-processing on the samples. Typically trimming silence, on/off ramp, volume-matching, normalizing 
-and some pitch-correction where necessary.
+All the samples have been edited for consistency: trimming silence, on/off ramp, volume-matching, normalizing, noise removal, and some pitch-correction where necessary.
 
 Included instruments:
 - bass-electric
@@ -107,4 +100,7 @@ Included instruments:
 - Add drumkits
 - Add Synths
 
+## LICENSE
 
+Code: MIT License (see LICENSE.md)
+Samples: [CC-by 3.0](https://creativecommons.org/licenses/by/3.0/)
