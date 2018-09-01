@@ -9,7 +9,7 @@ var SampleLibrary = {
     minify: false,
     ext: '.[mp3|ogg]', // use setExt to change the extensions on all files // do not change this variable //
     baseUrl: '/samples/',
-    list: ['bass-electric','bassoon','cello','clarinet','contrabass','flute','french-horn','guitar-acoustic','guitar-electric','harmonium','harp','organ','piano','saxophone','trombone','trumpet','tuba','violin','xylophone'],
+    list: ['bass-electric','bassoon','cello','clarinet','contrabass','flute','french-horn','guitar-acoustic','guitar-electric','guitar-nylon', 'harmonium','harp','organ','piano','saxophone','trombone','trumpet','tuba','violin','xylophone'],
 
     setExt: function (newExt) {
         var i
@@ -305,16 +305,12 @@ var SampleLibrary = {
         'A2': 'A2.[mp3|ogg]',
         'A3': 'A3.[mp3|ogg]',
         'A4': 'A4.[mp3|ogg]',
-        'A5': '5.[mp3|ogg]',
-        'C2': 'C2.[mp3|ogg]',
+        'A5': 'A5.[mp3|ogg]',
         'C3': 'C3.[mp3|ogg]',
         'C4': 'C4.[mp3|ogg]',
         'C5': 'C5.[mp3|ogg]',
         'C6': 'C6.[mp3|ogg]',
-        'C#2': 'Cs2.[mp3|ogg]',
-        'C#3': 'Cs3.[mp3|ogg]',
-        'C#4': 'Cs4.[mp3|ogg]',
-        'D1': 'D1.[mp3|ogg]'
+        'C#2': 'Cs2.[mp3|ogg]'
     },
     
     'guitar-nylon': {
@@ -616,27 +612,21 @@ var SampleLibrary = {
     },
 
     'violin': {
-        'C#1': 'Cs1.[mp3|ogg]',
-        'D#1': 'Ds1.[mp3|ogg]',
-        'F1': 'F1.[mp3|ogg]',
-        'G1': 'G1.[mp3|ogg]',
-        'A1': 'A1.[mp3|ogg]',
-        'B1': 'B1.[mp3|ogg]',
-        'C#2': 'Cs2.[mp3|ogg]',
-        'D#2': 'Ds2.[mp3|ogg]',
-        'F2': 'F2.[mp3|ogg]',
-        'G2': 'G2.[mp3|ogg]',
-        'A2': 'A2.[mp3|ogg]',
-        'C#3': 'Cs3.[mp3|ogg]',
-        'D#3': 'Ds3.[mp3|ogg]',
-        'F3': 'F3.[mp3|ogg]',
-        'G3': 'G3.[mp3|ogg]',
         'A3': 'A3.[mp3|ogg]',
-        'B3': 'B3.[mp3|ogg]',
-        'C#4': 'Cs4.[mp3|ogg]',
-        'D#4': 'Ds4.[mp3|ogg]',
-        'G4': 'G4.[mp3|ogg]'
-
+        'A4': 'A4.[mp3|ogg]',
+        'A5': 'A5.[mp3|ogg]',
+        'A6': 'A6.[mp3|ogg]',
+        'C4': 'C4.[mp3|ogg]',
+        'C5': 'C5.[mp3|ogg]',
+        'C6': 'C6.[mp3|ogg]',
+        'C7': 'C7.[mp3|ogg]',
+        'E4': 'E4.[mp3|ogg]',
+        'E5': 'E5.[mp3|ogg]',
+        'E6': 'E6.[mp3|ogg]',
+        'G4': 'G4.[mp3|ogg]',
+        'G5': 'G5.[mp3|ogg]',
+        'G6': 'G6.[mp3|ogg]'
+        
     },
 
     'xylophone': {
