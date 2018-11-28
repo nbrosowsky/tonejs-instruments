@@ -34,8 +34,8 @@ var instruments = SampleLibrary.load({
 Tone.Buffer.on('load', function() {
      // play instrument sound
      instruments['piano'].toMaster();
-     instruments['piano'].triggerAttack("A3")'
-      });
+     instruments['piano'].triggerAttack("A3");
+     });
 
 ```
 
