@@ -70,6 +70,7 @@ var piano = SampleLibrary.load({
   instruments: "piano",
   minify: true
   });
+  
 ```
 
 ## About the samples
