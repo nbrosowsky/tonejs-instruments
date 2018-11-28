@@ -29,10 +29,13 @@ var piano = SampleLibrary.load({
 var instruments = SampleLibrary.load({
   instruments: ["piano","harmonium","violin"]
   });
-  
-instruments['piano'].toMaster();
-instruments['piano'].triggerAttack("A3")'
 
+// waits for instrument sound files to load from /samples/
+Tone.Buffer.on('load', function() {
+     // play instrument sound
+     instruments['piano'].toMaster();
+     instruments['piano'].triggerAttack("A3")'
+});
 
 ```
 
