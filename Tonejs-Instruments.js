@@ -10,7 +10,8 @@ var SampleLibrary = {
     ext: '.[mp3|ogg]', // use setExt to change the extensions on all files // do not change this variable //
     baseUrl: '/samples/',
     list: ['bass-electric','bassoon','cello','clarinet','contrabass','flute','french-horn','guitar-acoustic','guitar-electric','guitar-nylon', 'harmonium','harp','organ','piano','saxophone','trombone','trumpet','tuba','violin','xylophone'],
-
+    onload: null,
+  
     setExt: function (newExt) {
         var i
         for (i = 0; i <= this.list.length - 1; i++) {
@@ -30,6 +31,7 @@ var SampleLibrary = {
         (arg) ? t = arg: t = {};
         t.instruments = t.instruments || this.list;
         t.baseUrl = t.baseUrl || this.baseUrl;
+        t.onload = t.onload || this.onload;
 
         // update extensions if arg given
         if (t.ext) {
@@ -72,7 +74,8 @@ var SampleLibrary = {
 
                 rt[t.instruments[i]] = new Tone.Sampler(
                     newT, {
-                        baseUrl: t.baseUrl + t.instruments[i] + "/"
+                        baseUrl: t.baseUrl + t.instruments[i] + "/",
+                        onload: t.onload
                     }
 
                 )
@@ -110,7 +113,8 @@ var SampleLibrary = {
 
             var s = new Tone.Sampler(
                 newT, {
-                    baseUrl: t.baseUrl + t.instruments + "/"
+                    baseUrl: t.baseUrl + t.instruments + "/",
+                    onload: t.onload
                 }
             )
 
