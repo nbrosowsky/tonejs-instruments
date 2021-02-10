@@ -323,7 +323,7 @@ var SampleLibrary = {
         'F#4': 'Fs4.[mp3|ogg]',
         'F#5': 'Fs5.[mp3|ogg]',
         'G3': 'G3.[mp3|ogg]',
-        'G5': 'G3.[mp3|ogg]',
+        'G5': 'G5.[mp3|ogg]',
         'G#2': 'Gs2.[mp3|ogg]',
         'G#4': 'Gs4.[mp3|ogg]',
         'G#5': 'Gs5.[mp3|ogg]',
