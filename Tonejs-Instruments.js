@@ -127,19 +127,19 @@ var SampleLibrary = {
         'A#1': 'As1.[mp3|ogg]',
         'A#2': 'As2.[mp3|ogg]',
         'A#3': 'As3.[mp3|ogg]',
-        'A#0': 'As0.[mp3|ogg]',
+        'A#4': 'As4.[mp3|ogg]',
         'C#1': 'Cs1.[mp3|ogg]',
         'C#2': 'Cs2.[mp3|ogg]',
         'C#3': 'Cs3.[mp3|ogg]',
-        'C#0': 'Cs0.[mp3|ogg]',
+        'C#4': 'Cs4.[mp3|ogg]',
         'E1': 'E1.[mp3|ogg]',
         'E2': 'E2.[mp3|ogg]',
         'E3': 'E3.[mp3|ogg]',
-        'E0': 'E0.[mp3|ogg]',
+        'E4': 'E4.[mp3|ogg]',
         'G1': 'G1.[mp3|ogg]',
         'G2': 'G2.[mp3|ogg]',
         'G3': 'G3.[mp3|ogg]',
-        'G0': 'G0.[mp3|ogg]'
+        'G4': 'G4.[mp3|ogg]'
     },
 
     'bassoon': {
