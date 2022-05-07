@@ -67,7 +67,8 @@
 
         var samples = SampleLibrary.load({
             instruments: chooseFour,
-            baseUrl: "/samples/"
+            // Note: Change baseURL to /samples/ to run locally (quirk when hosting github pages)
+            baseUrl: "/tonejs-instrument/samples/"
         })
 
         var current
