@@ -67,7 +67,7 @@
 
         var samples = SampleLibrary.load({
             instruments: chooseFour,
-            baseUrl: "/tonejs-instruments/samples/"
+            baseUrl: "/samples/"
         })
 
         var current
@@ -96,7 +96,7 @@
         })
         // show error message on loading error //
         Tone.Buffer.on('error', function() {
-            document.querySelector("#loading").innerHTML = "I'm sorry, there has been an error loading the samples. This demo works best on on the most up-to-date version of Chrome.";
+            document.querySelector("#loading").innerHTML = "I'm sorry, there has been an error loading the samples.";
         })
 
 

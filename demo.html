@@ -65,12 +65,14 @@
 
         var samples = SampleLibrary.load({
             instruments: ['piano', 'bass-electric', 'bassoon', 'cello', 'clarinet', 'contrabass', 'flute', 'french-horn', 'guitar-acoustic', 'guitar-electric','guitar-nylon', 'harmonium', 'harp', 'organ', 'saxophone', 'trombone', 'trumpet', 'tuba', 'violin', 'xylophone'],
-            baseUrl: "/tonejs-instruments/samples/"
+            baseUrl: "/samples/"
         })
 
 
         // show keyboard on load //
         var current
+
+
         Tone.Buffer.on('load', function() {
             document.querySelector(".container").style.display = 'block';
             document.querySelector("#loading").style.display = 'none';
