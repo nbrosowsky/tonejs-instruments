@@ -286,7 +286,7 @@ var SampleLibrary = {
         'D5': 'D5.[mp3|ogg]',
         'D#2': 'Ds2.[mp3|ogg]',
         'D#3': 'Ds3.[mp3|ogg]',
-        'D#4': 'Ds3.[mp3|ogg]',
+        'D#4': 'Ds4.[mp3|ogg]',
         'E2': 'E2.[mp3|ogg]',
         'E3': 'E3.[mp3|ogg]',
         'E4': 'E4.[mp3|ogg]',
